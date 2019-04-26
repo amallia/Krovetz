@@ -6,9 +6,9 @@ if (NOT CMAKE_BUILD_TYPE)
 endif()
 MESSAGE( STATUS "CMAKE_BUILD_TYPE: " ${CMAKE_BUILD_TYPE} )
 
-project(KrovetzStemmer)
+project(Krovetz)
 
-option(KrovetzStemmer_ENABLE_TESTING "Enable testing of the library." ON)
+option(Krovetz_ENABLE_TESTING "Enable testing of the library." ON)
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     if (CXX_COMPILER_VERSION VERSION_LESS 4.7)
@@ -27,16 +27,16 @@ else ()
 endif()
 
 include_directories(include)
-add_library(KrovetzStemmer STATIC include/KrovetzStemmer/KrovetzStemmer.cpp
-                                  include/KrovetzStemmer/KrovetzStemmer.hpp
+add_library(Krovetz STATIC include/Krovetz/Krovetz.hpp
+                                  src/Krovetz.cpp
 )
-target_include_directories(KrovetzStemmer INTERFACE
+target_include_directories(Krovetz INTERFACE
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${PROJECT_NAME}/include>
 )
 
 include(CTest)
-if(KrovetzStemmer_ENABLE_TESTING AND BUILD_TESTING)
+if(Krovetz_ENABLE_TESTING AND BUILD_TESTING)
     add_subdirectory(external)
     enable_testing()
     add_subdirectory(test)

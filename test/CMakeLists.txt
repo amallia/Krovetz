@@ -5,7 +5,7 @@ foreach(TEST_SRC ${TEST_SOURCES})
     target_link_libraries(${TEST_SRC_NAME}
     gtest
     gmock
-    KrovetzStemmer
+    Krovetz
     )
   add_test(${TEST_SRC_NAME} ${TEST_SRC_NAME})
 endforeach(TEST_SRC)
